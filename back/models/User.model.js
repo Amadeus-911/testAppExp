@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 
+const {postSchema} = require('./Post.model')
+
 const userSchema = mongoose.Schema({
     name :{
         type: String,
@@ -17,7 +19,9 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    posts : [postSchema],
+    
 })
 
 const User = new mongoose.model("User", userSchema)
